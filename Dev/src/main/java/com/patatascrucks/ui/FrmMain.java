@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui;
+package com.patatascrucks.ui;
 
 import javax.swing.JOptionPane;
 
@@ -41,6 +41,16 @@ public class FrmMain extends javax.swing.JFrame {
         menuItemCambio = new javax.swing.JMenuItem();
         menuItemObsequio = new javax.swing.JMenuItem();
         menuVenta = new javax.swing.JMenu();
+        menuItemDevolucionAnterior = new javax.swing.JMenuItem();
+        menuItemVenta = new javax.swing.JMenuItem();
+        menuItemCobro = new javax.swing.JMenuItem();
+        menuItemDevolucion = new javax.swing.JMenuItem();
+        menuAnulacion = new javax.swing.JMenu();
+        menuAdmin = new javax.swing.JMenu();
+        menuItemUsuarios = new javax.swing.JMenuItem();
+        menuItemSocios = new javax.swing.JMenuItem();
+        menuVendedores = new javax.swing.JMenuItem();
+        menuItemClientes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Patatas Cruck's");
@@ -97,7 +107,41 @@ public class FrmMain extends javax.swing.JFrame {
         barraMenu.add(menuInventario);
 
         menuVenta.setText("Ventas");
+
+        menuItemDevolucionAnterior.setText("Devolucion Anterior");
+        menuVenta.add(menuItemDevolucionAnterior);
+
+        menuItemVenta.setText("Nueva Venta");
+        menuVenta.add(menuItemVenta);
+
+        menuItemCobro.setText("Cobro");
+        menuVenta.add(menuItemCobro);
+
+        menuItemDevolucion.setText("Devolucion");
+        menuVenta.add(menuItemDevolucion);
+
         barraMenu.add(menuVenta);
+
+        menuAnulacion.setText("Anulaciones");
+        menuAnulacion.setEnabled(false);
+        barraMenu.add(menuAnulacion);
+
+        menuAdmin.setText("Administrar");
+
+        menuItemUsuarios.setText("Usuarios");
+        menuItemUsuarios.setEnabled(false);
+        menuAdmin.add(menuItemUsuarios);
+
+        menuItemSocios.setText("Socios");
+        menuAdmin.add(menuItemSocios);
+
+        menuVendedores.setText("Vendedores");
+        menuAdmin.add(menuVendedores);
+
+        menuItemClientes.setText("Clientes");
+        menuAdmin.add(menuItemClientes);
+
+        barraMenu.add(menuAdmin);
 
         setJMenuBar(barraMenu);
 
@@ -112,19 +156,29 @@ public class FrmMain extends javax.swing.JFrame {
     private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menuItemSalirActionPerformed
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JMenu menuAdmin;
+    private javax.swing.JMenu menuAnulacion;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuInventario;
     private javax.swing.JMenuItem menuItemAcerca;
     private javax.swing.JMenuItem menuItemCambio;
+    private javax.swing.JMenuItem menuItemClientes;
+    private javax.swing.JMenuItem menuItemCobro;
+    private javax.swing.JMenuItem menuItemDevolucion;
+    private javax.swing.JMenuItem menuItemDevolucionAnterior;
     private javax.swing.JMenuItem menuItemEgreso;
     private javax.swing.JMenuItem menuItemExistencia;
     private javax.swing.JMenuItem menuItemIngreso;
     private javax.swing.JMenuItem menuItemObsequio;
     private javax.swing.JMenuItem menuItemSalir;
+    private javax.swing.JMenuItem menuItemSocios;
+    private javax.swing.JMenuItem menuItemUsuarios;
+    private javax.swing.JMenuItem menuItemVenta;
     private javax.swing.JMenu menuPerdida;
+    private javax.swing.JMenuItem menuVendedores;
     private javax.swing.JMenu menuVenta;
     // End of variables declaration//GEN-END:variables
 }

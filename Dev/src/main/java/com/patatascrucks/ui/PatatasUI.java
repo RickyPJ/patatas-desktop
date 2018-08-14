@@ -1,7 +1,7 @@
 //
 //
 //
-package ui;
+package com.patatascrucks.ui;
 
 import java.sql.*;
 import java.awt.*;
@@ -13,9 +13,9 @@ import javax.swing.*;
 import java.util.*;
 import java.util.regex.*;
 
-import util.ResultSetTableModel;
+import com.patatascrucks.util.ResultSetTableModel;
 
-import print.PatatasPrint;
+import com.patatascrucks.print.PatatasPrint;
 
 public class PatatasUI extends JFrame {
 
@@ -170,8 +170,7 @@ public class PatatasUI extends JFrame {
 
         JMenuItem opcionAcerca = new JMenuItem("Acerca de...");
         opcionAcerca.setMnemonic('c');
-        opcionAcerca.addActionListener(
-                new ActionListener() {
+        opcionAcerca.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evento) {
                         JOptionPane.showMessageDialog(PatatasUI.this, "PATATAS DATABASE\n\nIngenieria Electronica\n\nDesarrolado por:\nRicardo Pati\u00f1o\n\nTodos los derechos reservados",

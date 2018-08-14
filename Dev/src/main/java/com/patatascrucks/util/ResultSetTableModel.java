@@ -2,7 +2,7 @@
 // ResultSetTableModel.java
 //
 
-package util;
+package com.patatascrucks.util;
 
 import java.sql.Connection;
 import java.sql.Statement;

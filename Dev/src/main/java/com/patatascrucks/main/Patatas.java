@@ -3,13 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package com.patatascrucks.main;
 
-import static java.awt.Frame.MAXIMIZED_BOTH;
-import javax.swing.JFrame;
-import ui.FrmMain;
-
-import ui.PatatasUI;
+import com.patatascrucks.ui.FrmMain;
 
 /**
  *

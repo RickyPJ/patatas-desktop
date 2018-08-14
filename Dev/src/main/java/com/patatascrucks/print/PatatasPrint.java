@@ -1,6 +1,6 @@
 // 224 x 298
 // 567 x 756
-package print;
+package com.patatascrucks.print;
 
 import javax.swing.*;
 import java.awt.print.*;
@@ -48,8 +48,7 @@ public class PatatasPrint extends JFrame implements Printable {
             printed = false;
         }
 
-        addWindowListener(
-                new WindowAdapter() {
+        addWindowListener(new WindowAdapter() {
                     @Override
                     public void windowClosing(WindowEvent e) {
                         PatatasPrint.this.dispose();
