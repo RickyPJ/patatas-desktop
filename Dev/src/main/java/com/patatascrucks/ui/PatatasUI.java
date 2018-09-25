@@ -132,35 +132,35 @@ public class PatatasUI extends JFrame {
     public PatatasUI() {
         super("Patatas DataBase");
 
-        try {
-            modelo = new ResultSetTableModel(CONTROLADOR_JDBC, URL_BASEDATOS, USUARIO, PASSWORD,
-                    CONSULTA_IMPLICITA);
-            modeloTabla = new ResultSetTableModel(CONTROLADOR_JDBC, URL_BASEDATOS, USUARIO, PASSWORD,
-                    CONSULTA_IMPLICITA);
-            modeloTabla1 = new ResultSetTableModel(CONTROLADOR_JDBC, URL_BASEDATOS, USUARIO, PASSWORD,
-                    CONSULTA_IMPLICITA);
-            conexion = modeloTabla.getConnection();
-
-            modeloTabla.establecerConsulta("SELECT producto, precioUnitario FROM Productos ORDER BY cod");
-            
-            int row = 0;
-            for (int i = 0; i < data.length; i++) {
-                if (!(i == 0 || i == 10 || i == 12 || i == 20 || i == 28 || i == 33 || i == 37 || i == 41 || i == 43 || i == 46 || i == 52 || i == 58 || i == 62)) {
-                    data[i][1] = String.format(Locale.UK, "%.2f", modeloTabla.getValueAt(row, 1));
-                    data[i][2] = String.format(Locale.UK, "%.4f", Double.parseDouble((String) data[i][1]) / (1 + IVA));
-                    data[i][3] = "0.00";
-                    ++row;
-                }
-            }
-        } catch (ClassNotFoundException e) {
-            System.err.println("Error al cargar el controlador JDBC");
-            JOptionPane.showMessageDialog(PatatasUI.this, "Error al cargar el controlador JDBC");
-            System.exit(1);
-        } catch (SQLException e) {
-            System.err.println("Incapaz de conectarse");
-            JOptionPane.showMessageDialog(PatatasUI.this, "Incapaz de conectarse");
-            System.exit(1);
-        }
+//        try {
+//            modelo = new ResultSetTableModel(CONTROLADOR_JDBC, URL_BASEDATOS, USUARIO, PASSWORD,
+//                    CONSULTA_IMPLICITA);
+//            modeloTabla = new ResultSetTableModel(CONTROLADOR_JDBC, URL_BASEDATOS, USUARIO, PASSWORD,
+//                    CONSULTA_IMPLICITA);
+//            modeloTabla1 = new ResultSetTableModel(CONTROLADOR_JDBC, URL_BASEDATOS, USUARIO, PASSWORD,
+//                    CONSULTA_IMPLICITA);
+//            conexion = modeloTabla.getConnection();
+//
+//            modeloTabla.establecerConsulta("SELECT producto, precioUnitario FROM Productos ORDER BY cod");
+//            
+//            int row = 0;
+//            for (int i = 0; i < data.length; i++) {
+//                if (!(i == 0 || i == 10 || i == 12 || i == 20 || i == 28 || i == 33 || i == 37 || i == 41 || i == 43 || i == 46 || i == 52 || i == 58 || i == 62)) {
+//                    data[i][1] = String.format(Locale.UK, "%.2f", modeloTabla.getValueAt(row, 1));
+//                    data[i][2] = String.format(Locale.UK, "%.4f", Double.parseDouble((String) data[i][1]) / (1 + IVA));
+//                    data[i][3] = "0.00";
+//                    ++row;
+//                }
+//            }
+//        } catch (ClassNotFoundException e) {
+//            System.err.println("Error al cargar el controlador JDBC");
+//            JOptionPane.showMessageDialog(PatatasUI.this, "Error al cargar el controlador JDBC");
+//            System.exit(1);
+//        } catch (SQLException e) {
+//            System.err.println("Incapaz de conectarse");
+//            JOptionPane.showMessageDialog(PatatasUI.this, "Incapaz de conectarse");
+//            System.exit(1);
+//        }
 
         fecha = Calendar.getInstance();
         setLayout(new BorderLayout());
@@ -6367,7 +6367,7 @@ public class PatatasUI extends JFrame {
             c.gridx = 0;
             c.gridy = 1;
             panel.add(new JScrollPane(tablaConsulta), c);
-            tabla = new JTable(new MyTableModel(data));
+            tabla = new JTable();
             tabla.setPreferredScrollableViewportSize(new Dimension(200, 350));
             tabla.setFillsViewportHeight(true);
             tabla.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);

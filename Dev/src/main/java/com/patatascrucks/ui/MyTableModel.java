@@ -5,6 +5,12 @@
  */
 package com.patatascrucks.ui;
 
+import com.patatascrucks.db.JpaController;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
@@ -12,18 +18,27 @@ import javax.swing.table.TableModel;
  *
  * @author Ricardo
  */
-public class MyTableModel extends AbstractTableModel implements TableModel {
+public class MyTableModel<K, T> extends AbstractTableModel implements TableModel {
 
-    private final String[] columnas = {"CANTIDAD", "DESCRIPCION", "P. UNITARIO", "TOTAL"};
-    private final Object[][] data;
+    private Class<T> classReference;
+    private String[] columnas;
+    private List<T> data;
 
-    public MyTableModel(Object[][] data) {
-        this.data = data;
-        for (int i = 0; i < data.length; i++) {
-            if (!(i == 0 || i == 10 || i == 12 || i == 20 || i == 28 || i == 33 || i == 37 || i == 41 || i == 43 || i == 46 || i == 52 || i == 58 || i == 62)) {
-                data[i][0] = "0";
-                data[i][3] = "0.00";
-            }
+    public MyTableModel() {
+        // Fill data from database
+        data = new ArrayList<>();
+        try (JpaController<K, T> controller = new JpaController<>()) {
+            data = controller.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(MyTableModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // Fill columns from class
+        columnas = new String[classReference.getFields().length];
+        int i = 0;
+        for (Field field : classReference.getFields()) {
+            columnas[i] = field.getName();
+            i++;
         }
     }
 
@@ -34,7 +49,7 @@ public class MyTableModel extends AbstractTableModel implements TableModel {
 
     @Override
     public int getRowCount() {
-        return data.length;
+        return data.size();
     }
 
     @Override
@@ -44,7 +59,14 @@ public class MyTableModel extends AbstractTableModel implements TableModel {
 
     @Override
     public Object getValueAt(int fila, int col) {
-        return data[fila][col];
+        T item = data.get(fila);
+        try {
+            return item.getClass().getField(columnas[col]).get(item);
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ex) {
+            Logger.getLogger(MyTableModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
 
     @Override
@@ -54,17 +76,20 @@ public class MyTableModel extends AbstractTableModel implements TableModel {
 
     @Override
     public boolean isCellEditable(int fila, int col) {
-        return (col <= 1) && fila != 0 && fila != 10 && fila != 12 && fila != 20 && fila != 28 && fila != 33 && fila != 37 && fila != 41 && fila != 43 && fila != 46 && fila != 52 && fila != 58 && fila != 62;
+        return true;
     }
 
     @Override
     public void setValueAt(Object valor, int fila, int col) {
-        if (col == 3) {
-            data[fila][col] = String.format("%.2f", valor);
-            fireTableCellUpdated(fila, col);
-        } else {
-            data[fila][col] = valor;
-            fireTableCellUpdated(fila, col);
+        try {
+            T item = data.get(fila);
+            Field field = item.getClass().getField(columnas[col]);
+            field.setAccessible(true);
+            field.set(item, valor);
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ex) {
+            Logger.getLogger(MyTableModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
 }

@@ -29,6 +29,9 @@ public class FrmMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelEscritorio = new javax.swing.JDesktopPane();
+        panelStatusBar = new org.jdesktop.swingx.JXStatusBar();
+        frmInternal = new javax.swing.JInternalFrame();
         barraMenu = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
         menuItemAcerca = new javax.swing.JMenuItem();
@@ -45,7 +48,10 @@ public class FrmMain extends javax.swing.JFrame {
         menuItemVenta = new javax.swing.JMenuItem();
         menuItemCobro = new javax.swing.JMenuItem();
         menuItemDevolucion = new javax.swing.JMenuItem();
+        menuItemDiario = new javax.swing.JMenuItem();
         menuAnulacion = new javax.swing.JMenu();
+        menuItemAnularProduccion = new javax.swing.JMenuItem();
+        menuReporte = new javax.swing.JMenu();
         menuAdmin = new javax.swing.JMenu();
         menuItemUsuarios = new javax.swing.JMenuItem();
         menuItemSocios = new javax.swing.JMenuItem();
@@ -59,6 +65,14 @@ public class FrmMain extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1200, 750));
         setResizable(false);
         setSize(new java.awt.Dimension(1200, 750));
+
+        panelEscritorio.setLayout(new java.awt.BorderLayout());
+        panelEscritorio.add(panelStatusBar, java.awt.BorderLayout.SOUTH);
+
+        frmInternal.setVisible(true);
+        panelEscritorio.add(frmInternal, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(panelEscritorio, java.awt.BorderLayout.CENTER);
 
         barraMenu.setName(""); // NOI18N
 
@@ -120,11 +134,21 @@ public class FrmMain extends javax.swing.JFrame {
         menuItemDevolucion.setText("Devolucion");
         menuVenta.add(menuItemDevolucion);
 
+        menuItemDiario.setText("Diario");
+        menuVenta.add(menuItemDiario);
+
         barraMenu.add(menuVenta);
 
         menuAnulacion.setText("Anulaciones");
         menuAnulacion.setEnabled(false);
+
+        menuItemAnularProduccion.setText("Produccion");
+        menuAnulacion.add(menuItemAnularProduccion);
+
         barraMenu.add(menuAnulacion);
+
+        menuReporte.setText("Reportes");
+        barraMenu.add(menuReporte);
 
         menuAdmin.setText("Administrar");
 
@@ -159,16 +183,19 @@ public class FrmMain extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JInternalFrame frmInternal;
     private javax.swing.JMenu menuAdmin;
     private javax.swing.JMenu menuAnulacion;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuInventario;
     private javax.swing.JMenuItem menuItemAcerca;
+    private javax.swing.JMenuItem menuItemAnularProduccion;
     private javax.swing.JMenuItem menuItemCambio;
     private javax.swing.JMenuItem menuItemClientes;
     private javax.swing.JMenuItem menuItemCobro;
     private javax.swing.JMenuItem menuItemDevolucion;
     private javax.swing.JMenuItem menuItemDevolucionAnterior;
+    private javax.swing.JMenuItem menuItemDiario;
     private javax.swing.JMenuItem menuItemEgreso;
     private javax.swing.JMenuItem menuItemExistencia;
     private javax.swing.JMenuItem menuItemIngreso;
@@ -178,7 +205,10 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemUsuarios;
     private javax.swing.JMenuItem menuItemVenta;
     private javax.swing.JMenu menuPerdida;
+    private javax.swing.JMenu menuReporte;
     private javax.swing.JMenuItem menuVendedores;
     private javax.swing.JMenu menuVenta;
+    private javax.swing.JDesktopPane panelEscritorio;
+    private org.jdesktop.swingx.JXStatusBar panelStatusBar;
     // End of variables declaration//GEN-END:variables
 }

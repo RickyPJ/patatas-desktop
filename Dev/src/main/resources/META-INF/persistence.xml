@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="PatatasHQ_PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.patatascrucks.entity.Producto</class>
+    <class>com.patatascrucks.entity.PerdidaDetalle</class>
+    <class>com.patatascrucks.entity.Retenciontarifa</class>
+    <class>com.patatascrucks.entity.Retencion</class>
+    <class>com.patatascrucks.entity.VentaNotadebito</class>
+    <class>com.patatascrucks.entity.EmisorVendedor</class>
+    <class>com.patatascrucks.entity.ProduccionMateriaprima</class>
+    <class>com.patatascrucks.entity.Identificacion</class>
+    <class>com.patatascrucks.entity.VendedorRuta</class>
+    <class>com.patatascrucks.entity.Formapago</class>
+    <class>com.patatascrucks.entity.Comprobante</class>
+    <class>com.patatascrucks.entity.DespachoDetalle</class>
+    <class>com.patatascrucks.entity.VentaDetalle</class>
+    <class>com.patatascrucks.entity.Ambiente</class>
+    <class>com.patatascrucks.entity.ProduccionDetalle</class>
+    <class>com.patatascrucks.entity.Item</class>
+    <class>com.patatascrucks.entity.Socio</class>
+    <class>com.patatascrucks.entity.Ruta</class>
+    <class>com.patatascrucks.entity.VentaNotacredito</class>
+    <class>com.patatascrucks.entity.Directorio</class>
+    <class>com.patatascrucks.entity.Produccion</class>
+    <class>com.patatascrucks.entity.Emisor</class>
+    <class>com.patatascrucks.entity.DevolucionDetalle</class>
+    <class>com.patatascrucks.entity.Perdida</class>
+    <class>com.patatascrucks.entity.Vendedor</class>
+    <class>com.patatascrucks.entity.VentaRetencion</class>
+    <class>com.patatascrucks.entity.RutaCliente</class>
+    <class>com.patatascrucks.entity.Impuestotarifa</class>
+    <class>com.patatascrucks.entity.Emision</class>
+    <class>com.patatascrucks.entity.Venta</class>
+    <class>com.patatascrucks.entity.Cliente</class>
+    <class>com.patatascrucks.entity.Impuesto</class>
+    <class>com.patatascrucks.entity.Materiaprima</class>
+    <class>com.patatascrucks.entity.VentaNotacreditoDetalle</class>
+    <class>com.patatascrucks.entity.Despacho</class>
+    <class>com.patatascrucks.entity.ItemImpuestotarifa</class>
+    <class>com.patatascrucks.entity.Grupo</class>
+    <class>com.patatascrucks.entity.Devolucion</class>
+    <class>com.patatascrucks.entity.Estado</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/patatas?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="Theytsejam30.!"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -5,8 +5,6 @@
  */
 package com.patatascrucks.main;
 
-import com.patatascrucks.ui.FrmMain;
-
 /**
  *
  * @author user
@@ -37,7 +35,7 @@ public class Patatas {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new FrmMain().setVisible(true);
+                new com.patatascrucks.ui.PatatasUI().setVisible(true);
             }
         });
     }
